@@ -470,7 +470,7 @@ class TokenSaverWorker(Worker):
                 end_time = message.pop("end_time", None)
                 _id = message.pop("id", None)
                 if audio_data is not None and len(audio_data) > 0:
-                    fname = self.name_format.format(N=_id, start = "{:.2f}".format(start_time), end = "{:.2f}".format(end_time))
+                    fname = self.name_format.format(N="{0:04d}".format(_id), start = "{:.2f}".format(start_time), end = "{:.2f}".format(end_time))
                     try:
                         if self.debug:
                             self.debug_message("[SAVE]: Detection {id} saved as {fname}".format(id=_id, fname=fname))
